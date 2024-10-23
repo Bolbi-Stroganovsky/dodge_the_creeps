@@ -11,6 +11,7 @@ var screen_size # Mida de la finestra de joc.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	hide()
 
 
 
@@ -52,5 +53,5 @@ func start(pos):
 func _on_Player_body_entered(body):
 	hide() # El jugador desapareix després de ser impactat.
 	emit_signal("hit")
-# S'ha d'ajornar, ja que no podem canviar les propietats físiques en una crida de retorn de física.
+	# S'ha d'ajornar, ja que no podem canviar les propietats físiques en una crida de retorn de física.
 	$CollisionShape2D.set_deferred("disabled", true) # Replace with function body.
